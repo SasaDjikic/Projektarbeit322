@@ -1,0 +1,23 @@
+﻿<Window x:Class="Projektarbeit322.Views.LoginView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projektarbeit322.Views"
+        mc:Ignorable="d"
+        Title="Login" Height="500" Width="400"
+        WindowStartupLocation="CenterScreen">
+    <StackPanel Orientation="Vertical" Margin="20, 20, 20, 20">
+        <Label Content="Benutzername:" HorizontalAlignment="Center"/>
+        <TextBox x:Name="txtboxUsername"
+                 TextChanged="txtboxUsername_TextChanged" />
+
+        <Label Content="Passwort:"
+               HorizontalAlignment="Center" />
+        <PasswordBox x:Name="txtboxPassword"
+                     PasswordChanged="txtboxPassword_PasswordChanged" />
+        <Button Content="Anmelden" Margin="100, 300, 100, 0"
+                Click="Button_Click" 
+                IsDefault="True"/>
+    </StackPanel>
+</Window>
