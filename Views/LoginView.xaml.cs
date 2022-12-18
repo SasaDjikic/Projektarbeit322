@@ -21,35 +21,24 @@ namespace Projektarbeit322.Views
 
     public partial class LoginView : Window
     {
-        private bool _isLoggedIn = false;
+        private int locker;
+        public bool _isLoggedIn { get; set; }
+        public bool _isLocked { get; set; }
+        
         public LoginView()
         {
             InitializeComponent();
             txtboxUsername.Focus();
         }
 
-        public LoginView(bool isLoggedIn)
+        public LoginView(bool isLoggedIn, bool isLocked)
             :this()
         {
             _isLoggedIn = isLoggedIn;
+            _isLocked = isLocked;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {           
-            if (txtboxPassword.Password == "IBZ123!" || txtboxUsername.Text == "Admin")
-            {
-                _isLoggedIn = true;
-                DialogResult = true;
-                Close();
-            }
-            else
-            {
-                txtboxPassword.Password = "Passwort ist Falsch";
-                txtboxPassword.Background = Brushes.Red;
-                txtboxUsername.Text = "Benutzername ist Falsch";
-                txtboxUsername.Background = Brushes.Red;
-            }
-        }
+        
 
         private void txtboxUsername_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -64,6 +53,38 @@ namespace Projektarbeit322.Views
             if (txtboxPassword.Password != "Passwort ist Falsch")
             {
                 txtboxPassword.Background = Brushes.White;
+            }
+        }
+
+        private void loginBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (locker != 3)
+            {
+                if (txtboxPassword.Password == "IBZ123!" || txtboxUsername.Text == "Admin")
+                {
+                    _isLoggedIn = true;
+                    DialogResult = true;
+                    Close();
+                }
+                else
+                {
+                    txtboxPassword.Password = "Passwort ist Falsch";
+                    txtboxPassword.Background = Brushes.Red;
+                    txtboxUsername.Text = "Benutzername ist Falsch";
+                    txtboxUsername.Background = Brushes.Red;
+                    locker++;
+                }
+            }
+            else
+            {
+                txtboxPassword.Password = "";
+                txtboxPassword.IsEnabled = false;
+                txtboxPassword.Background = Brushes.Yellow;
+                txtboxUsername.Text = "Login gesperrt, bitte Support kontaktieren - 0654242342";
+                txtboxUsername.IsReadOnly = true;
+                txtboxUsername.Background = Brushes.Yellow;
+                loginBtn.IsEnabled = false;
+                _isLocked = true;
             }
         }
     }

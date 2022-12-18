@@ -16,8 +16,9 @@
                HorizontalAlignment="Center" />
         <PasswordBox x:Name="txtboxPassword"
                      PasswordChanged="txtboxPassword_PasswordChanged" />
-        <Button Content="Anmelden" Margin="100, 300, 100, 0"
-                Click="Button_Click" 
+        <Button x:Name="loginBtn"
+                Content="Anmelden" Margin="100, 300, 100, 0"
+                Click="loginBtn_Click"
                 IsDefault="True"/>
     </StackPanel>
 </Window>

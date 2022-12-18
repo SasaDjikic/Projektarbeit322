@@ -20,7 +20,6 @@ namespace Projektarbeit322
     /// </summary>
     public partial class MainWindow : Window
     {
-        public bool isLoggedIn = false;
         private MainWindowViewModel _model = new ();
 
         public MainWindow()
@@ -45,37 +44,6 @@ namespace Projektarbeit322
             if (erfassenDialog.DialogResult == true)
             {
                 _model.Kundenliste.Add(kunde);
-            }
-        }
-
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
-        {
-            LoginView loginDialog = new(isLoggedIn)
-            {
-                // Owner setzen
-                Owner = this
-            };
-
-            // Window anzeigen
-            loginDialog.ShowDialog();
-
-            // Prüfen, ob Dialog mit OK beendet wurde
-            if (loginDialog.DialogResult == true)
-            {
-                txtEMail.IsReadOnly = false;
-                txtNachname.IsReadOnly = false;
-                txtVorname.IsReadOnly = false;
-                txtTelefon.IsReadOnly = false;
-                txtKommentar.IsReadOnly = false;
-                cbPriority.IsHitTestVisible = true;
-                cbPriority.Focusable = true;
-                cbStatus.IsHitTestVisible = true;
-                cbStatus.Focusable = true;
-                cbService.IsHitTestVisible = true;
-                cbService.Focusable = true;
-                newBtn.IsEnabled = true;
-                saveBtn.IsEnabled = true;
-                deleteBtn.IsEnabled = true;
             }
         }
 
@@ -187,5 +155,39 @@ namespace Projektarbeit322
             
         }
 
+        private void loginBtn_Click(object sender, RoutedEventArgs e)
+        {
+            LoginView loginDialog = new()
+            {
+                // Owner setzen
+                Owner = this
+            };
+
+            // Window anzeigen
+            loginDialog.ShowDialog();
+
+            // Prüfen, ob Dialog mit OK beendet wurde
+            if (loginDialog._isLoggedIn == true)
+            {
+                txtEMail.IsReadOnly = false;
+                txtNachname.IsReadOnly = false;
+                txtVorname.IsReadOnly = false;
+                txtTelefon.IsReadOnly = false;
+                txtKommentar.IsReadOnly = false;
+                cbPriority.IsHitTestVisible = true;
+                cbPriority.Focusable = true;
+                cbStatus.IsHitTestVisible = true;
+                cbStatus.Focusable = true;
+                cbService.IsHitTestVisible = true;
+                cbService.Focusable = true;
+                newBtn.IsEnabled = true;
+                saveBtn.IsEnabled = true;
+                deleteBtn.IsEnabled = true;
+            }
+            else if (loginDialog._isLocked == true)
+            {
+                loginBtn.IsEnabled = false;
+            }
+        }
     }
 }
