@@ -1,4 +1,5 @@
-﻿using Projektarbeit322.Models;
+﻿using Microsoft.Win32;
+using Projektarbeit322.Models;
 using Projektarbeit322.ViewModels;
 using Projektarbeit322.Views;
 using System;
@@ -6,6 +7,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
+using System.Media;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -177,12 +179,18 @@ namespace Projektarbeit322
                 Owner = this
             };
 
+
             // Window anzeigen
             loginDialog.ShowDialog();
 
             // Prüfen, ob Dialog mit OK beendet wurde
             if (loginDialog._isLoggedIn == true)
             {
+                MediaPlayer mediaPlayer = new MediaPlayer();
+                mediaPlayer.Open(new Uri(System.Environment.CurrentDirectory + "/startup.mp3"));
+                mediaPlayer.Volume = 0.05;
+                mediaPlayer.Play();
+
                 txtEMail.IsReadOnly = false;
                 txtNachname.IsReadOnly = false;
                 txtVorname.IsReadOnly = false;
