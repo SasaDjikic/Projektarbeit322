@@ -6,8 +6,9 @@
         xmlns:local="clr-namespace:Projektarbeit322.Views"
         mc:Ignorable="d"
         Title="Login" Height="500" Width="400"
-        WindowStartupLocation="CenterScreen">
-    <StackPanel Orientation="Vertical" Margin="20, 20, 20, 20">
+        WindowStartupLocation="CenterScreen"
+        Background="AntiqueWhite">
+    <StackPanel Orientation="Vertical" Margin="20, 20, 20, 20" >
         <Label Content="Benutzername:" HorizontalAlignment="Center"/>
         <TextBox x:Name="txtboxUsername"
                  TextChanged="txtboxUsername_TextChanged" />

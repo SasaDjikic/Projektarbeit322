@@ -128,29 +128,43 @@ namespace Projektarbeit322
         {
             var kunde = dgKunden.SelectedItem as Kunde;
 
-            kunde.Vorname = txtVorname.Text;
-            kunde.Nachname = txtNachname.Text;
-            kunde.EMail = txtEMail.Text;
-            kunde.Telefon = txtTelefon.Text;
-            kunde.Service = cbService.Text;
-            kunde.Priority = cbPriority.Text;
-            kunde.Status = cbStatus.Text;
-            kunde.Kommentar = txtKommentar.Text;
-            dgKunden.Items.Refresh();
+            if (kunde != null)
+            {
+                kunde.Vorname = txtVorname.Text;
+                kunde.Nachname = txtNachname.Text;
+                kunde.EMail = txtEMail.Text;
+                kunde.Telefon = txtTelefon.Text;
+                kunde.Service = cbService.Text;
+                kunde.Priority = cbPriority.Text;
+                kunde.Status = cbStatus.Text;
+                kunde.Kommentar = txtKommentar.Text;
+                dgKunden.Items.Refresh();
+            }
+            else
+            {
+                MessageBox.Show("Du hast nichts ausgewählt", "Achtung", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void deleteBtn_Click(object sender, RoutedEventArgs e)
         {
             var kunde = dgKunden.SelectedItem as Kunde;
 
-            var result = MessageBox.Show("Bist du dir sicher?", "Kunde löschen", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No);
-            
-            if (result == MessageBoxResult.Yes)
+            if (kunde != null)
             {
-                ObservableCollection<Kunde> data = (ObservableCollection<Kunde>)dgKunden.ItemsSource;
-                data.Remove(kunde);
+                var result = MessageBox.Show("Bist du dir sicher?", "Kunde löschen", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No);
 
-                dgKunden.Items.Refresh();
+                if (result == MessageBoxResult.Yes)
+                {
+                    ObservableCollection<Kunde> data = (ObservableCollection<Kunde>)dgKunden.ItemsSource;
+                    data.Remove(kunde);
+
+                    dgKunden.Items.Refresh();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Du hast nichts ausgewählt", "Achtung", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             
         }
