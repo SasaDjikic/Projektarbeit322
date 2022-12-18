@@ -39,31 +39,6 @@ namespace Projektarbeit322.Views
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-
-            string[] service = new string[]
-            {
-                "Kleiner Service",
-                "Grosser Service",
-                "Rennski Service",
-                "Bindung montieren und einstellen",
-                "Fell zuschneiden",
-                "Heisswachsen"
-            };
-
-            string[] priority = new string[]
-            {
-                "Tief",
-                "Standart",
-                "Express"
-            };
-
-            string[] status = new string[]
-            {
-                "Abgeschlossen",
-                "In-Arbeit",
-                "Offen"
-            };
-
             DialogResult = true;
             Close();
         }
