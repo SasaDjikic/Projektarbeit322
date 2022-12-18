@@ -58,7 +58,7 @@ namespace Projektarbeit322.Views
 
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (locker != 3)
+            if (locker != 2)
             {
                 if (txtboxPassword.Password == "IBZ123!" || txtboxUsername.Text == "Admin")
                 {

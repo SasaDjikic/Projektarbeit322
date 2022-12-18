@@ -30,7 +30,8 @@
                Content="Kunden-Nr.:"
                Margin="10, 5, 10, 5"
                VerticalAlignment="Center" />
-        <TextBox x:Name="tbKundenNr"
+        <TextBox VerticalContentAlignment="Center"
+                 x:Name="tbKundenNr"
                  Grid.Column="1"
                  Grid.ColumnSpan="3"
                  Text="{Binding KundenNr}"
@@ -40,6 +41,7 @@
                Content="Vorname:"
                Margin="10, 5, 10, 5" />
         <TextBox x:Name="tbKundenVorname"
+                 VerticalContentAlignment="Center"
                  Text="{Binding Vorname}"
                  Grid.Row="1"
                  Grid.Column="1"
@@ -50,6 +52,7 @@
                Margin="10, 5, 10, 5" />
         <TextBox x:Name="tbNachname"
                  Text="{Binding Nachname}"
+                 VerticalContentAlignment="Center"
                  Grid.Row="1"
                  Grid.Column="3"
                  Margin="10, 5, 10, 5" />
@@ -59,6 +62,7 @@
                Margin="10, 5, 10, 5" />
         <TextBox x:Name="tbEMail"
                  Text="{Binding EMail}"
+                 VerticalContentAlignment="Center"
                  Grid.Row="2"
                  Grid.Column="1"
                  Margin="10, 5, 10, 5" />
@@ -68,6 +72,7 @@
                Margin="10, 5, 10, 5" />
         <TextBox x:Name="tbTelefon"
                  Text="{Binding Telefon}"
+                 VerticalContentAlignment="Center"
                  Grid.Row="2"
                  Grid.Column="3"
                  Margin="10, 5, 10, 5" />
