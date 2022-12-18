@@ -62,7 +62,7 @@
                 </MenuItem>
             </Menu>
         </DockPanel>
-        <Label Content="Search:"
+        <Label Content="Suchen:"
                Grid.Row="3"
                Grid.Column="2"
                VerticalAlignment="Center"
@@ -273,7 +273,7 @@
                 <DataGridTextColumn Header="Service"
                                     Binding="{Binding Service}"
                                     Width="*" />
-                <DataGridTextColumn Header="Priority"
+                <DataGridTextColumn Header="Priorität"
                                     Binding="{Binding Priority}"
                                     Width="*" />
                 <DataGridTextColumn Header="Status"
